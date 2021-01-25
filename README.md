@@ -1,4 +1,4 @@
-# 13.0-javascript-intro
+# Python Intro
 
 ### **What is Python?**
 
