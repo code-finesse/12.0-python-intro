@@ -62,7 +62,37 @@ me = User("Finesse")
 me.greet()
 ```
 
-- extra example
+<details>
+<summary>Extra Example</summary>
+
+```python
+class BankAccount:
+    def __init__(self, name, type):
+        self.name = name
+        self.type = type
+        self.balance = 0
+        self.overdraft_fees = 0
+
+    def withdraw(self, amount):
+        if self.balance - amount >= 0:
+            self.balance -= amount
+            print(f"${self.balance} left in {self.type}")
+            return self.balance
+        else:
+            if self.overdraft_fees >= 100:
+                print(f"Your current overdraft fee is ${self.overdraft_fees} and you have reached your limit")
+                return self.overdraft_fees
+            else:
+                self.overdraft_fees += 20
+                print(f"Your current balance is ${self.balance} and too low to withdraw.")
+                return self.overdraft_fees
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"${self.balance} left in {self.type}")
+        return self.balance
+
+```
+</details>
 
 ### dictionaries vs objects
 
@@ -134,18 +164,138 @@ Take another look at the Phone classes to see how these pieces of syntax are use
 
 Notice how the Android class doesn't repeat the code that attaches the phone_number passed to the `__init__` method to the `self` reference. The Android class calls the parent constructor through the `super()` method and allows the parent class to execute that default behavior.
 
-- extra example
+<details>
+<summary>Extra Example</summary>
+
+```python
+class BankAccount():
+    def __init__(self):
+        self.balance = 0
+        self.interest = 1.02
+
+    def __str__(self):
+        return f"Current Balance: $ {self.balance}"
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            return False
+        elif amount <= 0:
+            return False
+        else:
+            self.balance -= amount
+            return amount
+
+    def deposit(self, amount):
+        if amount <= 0:
+            return False
+        else:
+            self.balance += amount
+            return self.balance
+
+    def check_balance(self):
+        return self.balance
+
+    def accumulate_interest(self):
+        self.balance = self.balance * self.interest
+        return self.balance
+
+basic_account = BankAccount()
+
+
+class ChildrensAccount(BankAccount):
+    def __init__(self):
+        super().__init__()
+        self.interest = 0
+    
+    def accumulate_interest(self):
+        self.balance += 10
+        return self.balance
+
+childs_account = ChildrensAccount()
+
+
+class OverdraftAccount(BankAccount):
+    def __init__(self):
+        super().__init__()
+        self.overdraft_penalty = 40
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            self.balance -= self.overdraft_penalty
+            return False
+        elif amount <= 0:
+            return False
+        else:
+            self.balance -= amount
+            return amount
+
+    def accumulate_interest(self):
+        if self.balance <= 0:
+            return self.balance
+        else:
+            self.balance = self.balance * self.interest
+
+#below also works to extend a function that was refactored
+		# def accumulate_interest(self):
+      #   if self.balance <= 0:
+        #     return self.balance
+        # else:
+            # return super().accumulate_interest()
+
+overdraft_account = OverdraftAccount()
+
+```
+</details>
 
 ## Dunder Methods
 
-- TLDR
+<details>
+<summary>More Details</summary>
+
+### **What are Dunder Methods (Magic Methods)?**
+
+> Dunder is short-hand for double underscore.
+
+We've seen one dunder method before, `__init__`, which is called whenever you create an instance of a class. These methods are invoked by Python when you use a built-in method. For example the `__str__` dunder method is called whenever we use the `str()` function on an instance of the class. Let's see what that looks like:
+
+```python
+class Dog:
+    def __init__(self, name):
+        self.name = name
+        self.good_dog = True
+
+    def __str__(self):
+        return self.name
+
+maddie = Dog('Maddie')
+print(str(maddie)) # Maddie
+print(maddie) # Maddie
+```
+
+We can also think of the `__str__` method as useful to *describe* a class instance. What happens if we don't have one and we try to `print(maddie)`?
+
+We'll see something like this:
+
+```python
+<__main__.Dog object at 0x7f7561eee198>
+```
+
+Other useful dunder methods include:
+
+- `__getattr__` for when you get an attribute (i.e. `maddie.name`)
+- `__setattr__` for when you get an attribute (i.e. `maddie.name = 'Madison'`)
+- `__len__` for when you call `len` on the class
+- `__add__` for when you add instances of the class
+- `__getitem__` for using bracket notation on an instance of the class (i.e. `maddie['food']`)
+
+Such dunder methods exist for almost every operator! More examples here.
+</details>
 
 There is a special (or a "magic") method for every operator sign. The magic method for the "+" sign is the `__add__` method. For "-" it is `__sub__` and so on. We have a complete listing of all the magic methods a little further down.
 
 The mechanism works like this: If we have an expression "x + y" and x is an instance of class K, then Python will check the class definition of K. If K has a method `__add__` it will be called with `x.__add__(y)`, otherwise we will get an error message:
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/44bfc56d-83b9-4cac-8280-c7f7a8ec36da/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/44bfc56d-83b9-4cac-8280-c7f7a8ec36da/Untitled.png)
-
+![image](https://user-images.githubusercontent.com/68978118/105787877-99539400-5f3c-11eb-90bb-c0dfe4a0da77.png)
 ```
 Traceback (most recent call last):
   File "", line 1, in 
