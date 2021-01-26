@@ -33,603 +33,664 @@ exit()                # quit Python REPL
 ```
 
 ## Fundamental Characteristics of Python
+- Everything in Python is an object; everything has its own set of properties and methods
+<details>
+<summary>Variables</summary>
 
-- Everything in Python is an object
-    - everything has its own set of properties and methods
-- Variables
-    - variables in Python are assigned by using a single equal sign (=)
-    - variables are written in snake_case (all lower case with words separated by underscores)
-    - variables are instantiated as they are used
-
-    ```python
-    my_favorite_animal = "Bengal Tiger"
-    # => "Bengal Tiger"
-    ```
-
-- Numbers
-    - Python uses similar arithmetic operators (+, -, *, /, %, **) to Javascript and has the same order of operations (P.E.M.D.A.S.)
-    - there are integers and floats
-
-    ```python
-    1 + 2 # Addition
-    # => 3
-
-    6 - 5 # Subtraction
-    # => 1
-
-    5 * 2 # Multiplication
-    # => 10
-
-    30 / 5 # Division
-    # => 6.0
-
-    31 // 5 # Note: integer division
-    # => 6
-
-    30 % 5 # Modulo (remainder)
-    # => 0
-
-    31 % 5
-    # => 1
-
-    3 ** 2 # Exponentiation
-    # => 9
-    ```
-
-- Strings
-    - text just like in Javascript
-    - surrounded by single or double quotes (double is customary)
-    - Python uses similar escape characters
-    - strings can be concatenated and multiplied
-
-    ```python
-    # Concatenation
-    "Wassup " + "squad!"
-    # => "Hello there!"
+- variables in Python are assigned by using a single equal sign (=)
+- variables are written in snake_case (all lower case with words separated by underscores)
+- variables are instantiated as they are used
 
-    # Multiplication
-    "Wassup squad! " * 3
-    # => "Hello there! Hello there! Hello there! "
+```python
+my_favorite_animal = "Bengal Tiger"
+# => "Bengal Tiger"
+```
 
-    ```
+</details>
 
-    - strings can be interpolated multiple ways
-        - format method takes the strings to be concatenated as its parameters
-        - the clutchest (in my opinion) way is using an F string (new to python 3.6)
 
-    ```python
-    # FORMAT
-    class_number = 22
+<details>
 
-    "I am teaching WDI {}.".format(class_number)
-    # => "I am teaching WDI 22."
+<summary>Numbers</summary>
 
-    person1 = "Spongbob"
-    person2 = "Patrick"
-    occupation = "frycook"
-    print("{0} is a {2}. {1} is not.".format(person1, person2, occupation))# => "Lauren is a consultant. Frank is a consultant as well."
-    # => "Spongebob is a frycook. Patrick is not.
+- Python uses similar arithmetic operators (+, -, *, /, %, **) to Javascript and has the same order of operations (P.E.M.D.A.S.)
+- Integers and Floats: Integers and floats are two different kinds of numerical data. An integer (more commonly called an int) is a number without a decimal point. A float is a floating-point number, which means it is a number that has a decimal place. Floats are used when more precision is needed.
 
-    # F STRING
-    city = 'Atlanta'
-    print(f"Shout out to {city}")
-    ```
 
-- Booleans
-    - they are True and False (both capitals)
-    - comparison operators check for equality
-        - the check for equality is always for both value and data type
+```python
+1 + 2 # Addition
+# => 3
 
-        [Untitled](https://www.notion.so/eccd5453ba9b48d290a09f41eddaca1d)
+6 - 5 # Subtraction
+# => 1
 
-    ```python
-    num = 99
-    0 < num < 100
-    # => True
-    ```
+5 * 2 # Multiplication
+# => 10
 
-- Conditionals
-    - No parentheses or curly brackets required
-    - Begin blocks using `if`, `elif` and `else`
-    - Use colons after each condition
-    - Indentation matters! 4 spaces is the standard indent.
+30 / 5 # Division
+# => 6.0
 
-    ```python
-    print("Welcome to the Iron Rattler! How tall are you (in feet)?")
-    height = int(input("Enter your height in feet:"))
+31 // 5 # Note: integer division
+# => 6
 
-    if height < 4:
-        print("Sorry you aren't tall enough")
-    elif height < 7:
-        print("Have fun!")
-    else:
-        print("If you value your head, you should not get on this ride.")
-    ```
+30 % 5 # Modulo (remainder)
+# => 0
 
-- Print and Input (input & output)
-    - To print out to the console like console.log() does in JavaScript, we use the print function:
+31 % 5
+# => 1
 
-    ```python
-    print("Hello, World!")
-    # Hello, World!
-    ```
+3 ** 2 # Exponentiation
+# => 9
+```
+</details>
 
-    - Python also makes it easy for us to accept user input from the command line using input:
+<details>
+    
+<summary>Strings</summary>
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eda5d5ba-8a9c-4afa-9c45-49d436915d45/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eda5d5ba-8a9c-4afa-9c45-49d436915d45/Untitled.png)
+- text just like in Javascript
+- surrounded by single or double quotes (double is customary)
+- Python uses similar escape characters
+- strings can be concatenated and multiplied
 
-- Lists and Collections
-    - An ordered collection of related values
-    - Basically cooler arrays
-    - Square brackets
-    - Values separated by commas
-    - Zero-indexed
+```python
+# Concatenation
+"Wassup " + "squad!"
+# => "Hello there!"
 
-    ```python
-    numbers = [1, 2, 3]
-    # => [1, 2, 3]
+# Multiplication
+"Wassup squad! " * 3
+# => "Hello there! Hello there! Hello there! "
 
-    animals = ["dog", "cat", "horse"]
-    # => ["dog", "cat", "horse"]
+```
 
-    animals[0]
-    # => "dog"
+- strings can be interpolated multiple ways
+- format method takes the strings to be concatenated as its parameters
+- the clutchest (in my opinion) way is using an F string (new to python 3.6)
 
-    animals[1] = "elephant"
-    # => "elephant"
+```python
+# FORMAT
+class_number = 22
 
-    animals
-    # => ["dog", "elephant", "horse"]
-    ```
+"I am teaching WDI {}.".format(class_number)
+# => "I am teaching WDI 22."
 
-    - more info
+person1 = "Spongbob"
+person2 = "Patrick"
+occupation = "frycook"
+print("{0} is a {2}. {1} is not.".format(person1, person2, occupation))# => "Lauren is a consultant. Frank is a consultant as well."
+# => "Spongebob is a frycook. Patrick is not.
 
-        ### **List Methods**
+# F STRING
+city = 'Atlanta'
+print(f"Shout out to {city}")
+```
 
-        Python provides us with an extensive library of list methods we can use to traverse and manipulate lists.
+</details>
 
-        - The Python [documentation](https://docs.python.org/3.6/tutorial/datastructures.html) for `List` is a great resource for learning more about these methods
-        - Can't go over them all, but chances are if you could do it in JavaScript then you can do it in Python.
+<details>
+<summary>Booleans</summary>
+    
+- they are True and False (both capitals)
+- comparison operators check for equality
+- the check for equality is always for both value and data type
+    
+Name | JavaScript | Python
+--- | --- | ---
+| Logical Operators	| &&, ||, !	| and, or, not | 
+Relational Operators | ==   !=   >   <   >=   <=   === | ==   !=   >   <   >=   ≤ |
 
-        > IMPORTANT: You DO NOT need to memorize these. The following is just a sample of array methods available to you. You'll come to be more familiar with these as you need them and look them up in documentation.tl;dr: The more you Google them, the better you'll remember them.
 
-        ### **`.append()`, `.extend()`, and `.pop()`**
+```python
+num = 99
+0 < num < 100
+# => True
+```
 
-        - Append inserts an item into the end of the list.
-        - Extend adds two arrays together.
-        - Pop removes an item from the end of the list. You can also supply an index to `pop` to remove at that index.
+</details>
 
-        You can think of them in comparison to these equivalent javascript methods:
+<details>
+<summary>Conditionals</summary>
+    
+- No parentheses or curly brackets required
+- Begin blocks using `if`, `elif` and `else`
+- Use colons after each condition
+- Indentation matters! 4 spaces is the standard indent.
 
-        [Untitled](https://www.notion.so/14f9ff4353a04faa9b0f68fe2467cb7b)
+```python
+print("Welcome to the Iron Rattler! How tall are you (in feet)?")
+height = int(input("Enter your height in feet:"))
 
-        ```python
-        numbers = [1, 2, 3, 4, 5]
-        # => [1, 2, 3, 4, 5]
+if height < 4:
+print("Sorry you aren't tall enough")
+elif height < 7:
+print("Have fun!")
+else:
+print("If you value your head, you should not get on this ride.")
+```
 
-        numbers.append(6)
-        # => [1, 2, 3, 4, 5, 6]
+</details>
 
-        numbers.append([1, 2, 3])
-        # => [1, 2, 3, 4, 5, 6, [1, 2, 3]]
+<details>
+<summary>Print and Input(input&output)</summary>
 
-        numbers.extend([7, 8, 9])
-        # => [1, 2, 3, 4, 5, 6, [1, 2, 3], 7, 8, 9]
+- To print out to the console like console.log() does in JavaScript, we use the print function:
 
-        numbers.pop()
-        # => 9
+```python
+print("Hello, World!")
+# Hello, World!
+```
 
-        numbers
-        # => [1, 2, 3, 4, 5, 6, [1, 2, 3], 7, 8]
+- Python also makes it easy for us to accept user input from the command line using input:
 
-        numbers.pop(0)
-        # => [2, 3, 4, 5, 6, [1, 2, 3], 7, 8]
-        ```
+![input_example](https://user-images.githubusercontent.com/68978118/105785346-e41edd00-5f37-11eb-8f67-cf43d21bd276.png)
 
-        Python also has a few methods that JS doesn't have:
 
-        ### **`list.insert(index, value)`**
+</details>
 
-        Insert an item at a given position. The first argument is the index of the element before which to insert, so a.insert(0, x) inserts at the front of the list, and a.insert(len(a), x) is equivalent to a.append(x).
+<details>
+<summary>Lists and Collections</summary>
 
-        ```python
-        numbers = [3, 1, 5, 2, 4]
+- An ordered collection of related values
+- Basically cooler arrays
+- Square brackets
+- Values separated by commas
+- Zero-indexed
 
-        numbers.insert(2, 11)
+```python
+numbers = [1, 2, 3]
+# => [1, 2, 3]
 
-        # => [3, 1, 11, 5, 2, 4]
-        ```
+animals = ["dog", "cat", "horse"]
+# => ["dog", "cat", "horse"]
 
-        ### **`sorted()`**
+animals[0]
+# => "dog"
 
-        Organizes list values from lowest to highest. Numbers and strings.
+animals[1] = "elephant"
+# => "elephant"
 
-        ```python
-        numbers = [3, 1, 5, 2, 4]
-        # => [3, 1, 5, 2, 4]
+animals
+# => ["dog", "elephant", "horse"]
+```
 
-        sorted(numbers)
-        # => [1, 2, 3, 4, 5]
-        ```
+<details>
+<summary>More Info</summary>
 
-        ### **`.remove()`**
+### **List Methods**
 
-        - Removes an argument from a list
-        - If there are multiple instances of that argument, it will delete just the first.
+Python provides us with an extensive library of list methods we can use to traverse and manipulate lists.
 
-        ```python
-        numbers = [3, 1, 2, 2, 4]
-        # => [3, 1, 2, 2, 4]
+- The Python [documentation](https://docs.python.org/3.6/tutorial/datastructures.html) for `List` is a great resource for learning more about these methods
+- Can't go over them all, but chances are if you could do it in JavaScript then you can do it in Python.
 
-        numbers.remove(2)
-        # => 2
+> IMPORTANT: You DO NOT need to memorize these. The following is just a sample of array methods available to you. You'll come to be more familiar with these as you need them and look them up in documentation.tl;dr: The more you Google them, the better you'll remember them.
 
-        numbers
-        # => [3, 1, 2, 4]
-        ```
+### **`.append()`, `.extend()`, and `.pop()`**
 
-- Dictionary
-    - An unordered collection organized by key-value pairs
-    - Basically cooler object
+- Append inserts an item into the end of the list.
+- Extend adds two arrays together.
+- Pop removes an item from the end of the list. You can also supply an index to `pop` to remove at that index.
 
-    ```python
-    sei_class= {
-      "teacher": "Jimmy",
-      "students": ["Yacko", "Wacko", "Dot"],
-      "classroom": 2,
-      "in_session": True,
-      "schedule": {
-        "morning": "Python Basics",
-        "afternoon": "Enumerables"
-      }
-    }
+You can think of them in comparison to these equivalent javascript methods:
 
-    # Accessing dictionary values:
-    sei_class["teacher"]
-    # => "John"
+Python | JavaScript |
+--- | --- |
+| append	| push	|
+| extend | concat |
+| pop | pop |
 
-    # Note that you can't do this, like you can in javascript!
-    sei_class.teacher
+```python
+numbers = [1, 2, 3, 4, 5]
+# => [1, 2, 3, 4, 5]
 
-    # => AttributeError: 'dict' object has no attribute 'teacher'
-    # Modifying dictionary values:
+numbers.append(6)
+# => [1, 2, 3, 4, 5, 6]
 
-    sei_class["teacher"] = "Jimbo"
-    # => "Jimbo"
+numbers.append([1, 2, 3])
+# => [1, 2, 3, 4, 5, 6, [1, 2, 3]]
 
-    #Nested values:
-    sei_class["schedule"]["morning"]
-    # => "Python Basics"
-    ```
+numbers.extend([7, 8, 9])
+# => [1, 2, 3, 4, 5, 6, [1, 2, 3], 7, 8, 9]
 
-    - more info
+numbers.pop()
+# => 9
 
-        ### **Dictionary Methods**
+numbers
+# => [1, 2, 3, 4, 5, 6, [1, 2, 3], 7, 8]
 
-        Like lists, Python also provides us with a library of dictionary methods.
+numbers.pop(0)
+# => [2, 3, 4, 5, 6, [1, 2, 3], 7, 8]
+```
 
-        - [Again, the Python documentation is a great resource](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
+Python also has a few methods that JS doesn't have:
 
-        > As mentioned with lists, do not worry about memorizing these methods. Just know how to look them up should the need arise.
+### **`list.insert(index, value)`**
 
-        ### **Keys**
+Insert an item at a given position. The first argument is the index of the element before which to insert, so a.insert(0, x) inserts at the front of the list, and a.insert(len(a), x) is equivalent to a.append(x).
 
-        Returns a `dict_keys` structure with all the keys in the dictionary. Can easily be translated to a list using `list()`.
+```python
+numbers = [3, 1, 5, 2, 4]
 
-        ```python
-        sei_class.keys()
-        # => dict_keys(['teacher', 'students', 'classroom', 'in_session', 'schedule'])
+numbers.insert(2, 11)
 
-        list(sei_class.keys())
-        # => ['teacher', 'students', 'classroom', 'in_session', 'schedule']
-        ```
+# => [3, 1, 11, 5, 2, 4]
+```
 
-        Note that `dict_keys` is not a list. It's a specific data type, so it doesn't have all the same methods that lists have.
+### **`sorted()`**
 
-- Ranges
-    - Parentheses
-    - Min and max value - 1 inside `range`. Range is not inclusive, meaning that it includes numbers up until the second parameter but not the second parameter itself, similiar to using a `<` in for loops.
-    - Generate list using `list()` function
+Organizes list values from lowest to highest. Numbers and strings.
 
-    ```python
-    list(range(1, 6))
-    # => [1, 2, 3, 4, 5]
+```python
+numbers = [3, 1, 5, 2, 4]
+# => [3, 1, 5, 2, 4]
 
-    #You can also use ranges in for loops!
+sorted(numbers)
+# => [1, 2, 3, 4, 5]
+```
 
-    for i in range(1, 6):
-      print(i)
+### **`.remove()`**
 
-    # => 1
-    # => 2
-    # => 3
-    # => 4
-    # => 5
-    ```
+- Removes an argument from a list
+- If there are multiple instances of that argument, it will delete just the first.
 
-    - more info
+```python
+numbers = [3, 1, 2, 2, 4]
+# => [3, 1, 2, 2, 4]
 
-        ### **length**
+numbers.remove(2)
+# => 2
 
-        Python uses a special function called `len()` to get the length of different data structures.
+numbers
+# => [3, 1, 2, 4]
+```
 
-        You can use `len()` on any iterable type, which includes lists and dictionaries.
+</details>
+</details>
 
-        ```python
-        sei_class = {
-          "teacher": "John",
-          "students": ["Yacko", "Wacko", "Dot"],
-          "classroom": 2,
-          "in_session": True,
-          "schedule": {
-            "morning": "Python Basics",
-            "afternoon": "Enumerables"
-          }
-        }
+<details>
+<summary>Dictionary</summary>
+    
+- An unordered collection organized by key-value pairs
+- Basically cooler object
 
-        len(sei_class)
-        # => 5
-        ```
+```python
+sei_class= {
+"teacher": "Jimmy",
+"students": ["Yacko", "Wacko", "Dot"],
+"classroom": 2,
+"in_session": True,
+"schedule": {
+"morning": "Python Basics",
+"afternoon": "Enumerables"
+}
+}
 
-        > Note that there is no array.length property!
+# Accessing dictionary values:
+sei_class["teacher"]
+# => "John"
 
-- Functions
+# Note that you can't do this, like you can in javascript!
+sei_class.teacher
 
-    In Python, functions are defined like this:
+# => AttributeError: 'dict' object has no attribute 'teacher'
+# Modifying dictionary values:
 
-    ```python
-    def double(number):
-        return number * 2
-    ```
+sei_class["teacher"] = "Jimbo"
+# => "Jimbo"
 
-    - `def` - the Python equivalent of `function`
-    - `double` - the function name in the above example
-    - `number` - the parameter name in the above example
-    - Use a `:` instead of curly brackets `{}`
+#Nested values:
+sei_class["schedule"]["morning"]
+# => "Python Basics"
+```
 
-    We invoke it like this:
+<details>
+<summary>More Info<summary>
 
-    ```python
-    double(3)
-    # => 6
-    ```
+### **Dictionary Methods**
 
-    You may have noticed that we use the same `return` notation as JavaScript.
+Like lists, Python also provides us with a library of dictionary methods.
 
-    Python functions can also establish default argument values. In the below example, if we do not provide our `double` function with an argument, it will default to 5
+- [Again, the Python documentation is a great resource](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
 
-    ```python
-    def double(number=5):
-        return number * 2
+> As mentioned with lists, do not worry about memorizing these methods. Just know how to look them up should the need arise.
 
-    double()
-    # => 10
-    ```
+### **Keys**
 
-- Differences
-    - Javascript
+Returns a `dict_keys` structure with all the keys in the dictionary. Can easily be translated to a list using `list()`.
 
-        ```jsx
-        // Write a method that accepts a name from the user and then returns it. Here's the javascript:
+```python
+sei_class.keys()
+# => dict_keys(['teacher', 'students', 'classroom', 'in_session', 'schedule'])
 
-        const getName = () => {
-          let name = prompt("what is your name?");
-          return name;
-        };
+list(sei_class.keys())
+# => ['teacher', 'students', 'classroom', 'in_session', 'schedule']
+```
 
-        // Write a method that reverses a string. Here's the javascript:
+Note that `dict_keys` is not a list. It's a specific data type, so it doesn't have all the same methods that lists have.
+</details>
+</details>
 
-        const reverseIt = () => {
-          let string = "a man, a plan, a canal, frenemies!";
+<details>
+<summary>Ranges</summary>
 
-          let reverse = "";
+- Parentheses
+- Min and max value - 1 inside `range`. Range is not inclusive, meaning that it includes numbers up until the second parameter but not the second parameter itself, similiar to using a `<` in for loops.
+- Generate list using `list()` function
 
-          for (let i=0; i < string.length; i++) {
-            reverse += string[string.length - (i+1)];
-          };
+```python
+list(range(1, 6))
+# => [1, 2, 3, 4, 5]
 
-          console.log(reverse);
-        };
+#You can also use ranges in for loops!
 
-        // Write a method that swaps the values of two variables around. Here's the javascript:
+for i in range(1, 6):
+print(i)
 
-        const swapEm = () => {
-          let a = 10;
-          let b = 30;
-          let temp;
+# => 1
+# => 2
+# => 3
+# => 4
+# => 5
+```
 
-          temp = b;
-          b = a;
-          a = temp;
+<details>
+<summary>More Info</summary>
 
-          console.log("a is now " + a + ", and b is now " + b);
-        };
+### **length**
 
-        // Write a method that multiplies all numbers in a given array and returns the final product. Here's the javascript:
+Python uses a special function called `len()` to get the length of different data structures.
 
-        const multiplyArray = (ary) => {
-          if (ary.length == 0) { return 1; };
+You can use `len()` on any iterable type, which includes lists and dictionaries.
 
-          let total = 1;
-          // let total = ary[0];
+```python
+sei_class = {
+"teacher": "John",
+"students": ["Yacko", "Wacko", "Dot"],
+"classroom": 2,
+"in_session": True,
+"schedule": {
+"morning": "Python Basics",
+"afternoon": "Enumerables"
+}
+}
 
-          for (let i=0; i < ary.length; i++) {
-            total = total * ary[i];
-          };
+len(sei_class)
+# => 5
+```
 
-          return total;
-        };
+> Note that there is no array.length property!
+</details>
+</details>
 
-        // Write a method that takes a number argument and returns "fizz" if the number is divisible by three, "buzz" if the number is divisible by five, and "fizzbuzz" if it's divisible by both. Here's the javascript:
+<details>
+<summary>Functions</summary>
 
-        const fizzbuzzer = (x) => {
-          if( x%(3*5) == 0 ) {
-            return 'fizzbuzz'
-          } else if( x%3 == 0 ) {
-            return 'fizz'
-          } else if ( x%5 == 0 ) {
-            return 'buzz'
-          } else {
-            return 'archer'
-          }
-        }
+In Python, functions are defined like this:
 
-        // Write a method that finds the fibonacci number at the nth position and returns it. Here is the javascript:
+```python
+def double(number):
+return number * 2
+```
 
-        const nthFibonacciNumber = () => {
-          let fibs = [1, 1];
-          let num = prompt("which fibonacci number do you want?");
+- `def` - the Python equivalent of `function`
+- `double` - the function name in the above example
+- `number` - the parameter name in the above example
+- Use a `:` instead of curly brackets `{}`
 
-          while (fibs.length < parseInt(num)) {
-            let length = fibs.length;
-            let nextFib = fibs[length - 2] + fibs[length - 1];
-            fibs.push(nextFib);
-          }
+We invoke it like this:
 
-          console.log(fibs[fibs.length - 1] + " is the fibonacci number at position " + num);
-        };
+```python
+double(3)
+# => 6
+```
 
-        // Write a method that searches through an array for a value and returns true or false depending on whether or not the value is present in the array. Here is the javascript:
+You may have noticed that we use the same `return` notation as JavaScript.
 
-        const searchArray = (array, value) => {
-          for(let i = 0; i < array.length-1; i++) {
-            if(array[i] == value) {
-              return true;
-              break;
-            }
-          }
-          return -1;
-        };
+Python functions can also establish default argument values. In the below example, if we do not provide our `double` function with an argument, it will default to 5
 
-        // Write a method that checks whether or not a string is a palindrome. Here is the javascript:
+```python
+def double(number=5):
+return number * 2
 
-        const isPalindrome = (str) => {
-          for(let i = 0; i < str.length/2; i++){
-            if(str[i] != str[str.length-i-1]){
-              return false;
-              break;
-            }
-          }
-          return true;
-        };
-
-        // Write a method that checks whether or not an array has any duplicates. Here is the javascript:
-
-        const hasDupes = (arr) => {
-          let obj = {};
-          for (i = 0; i < arr.length; i++) {
-            if(obj[arr[i]]) {
-              return true;
-            }
-            else {
-              obj[arr[i]] = true;
-            }
-          }
-          return false;
-        };
-        ```
-
-    - Python
-
-        ```python
-        def getName():
-            name = input('what is your name? ')
-            return name
-        # print(getName())
-        # Write a method that reverses a string.
-        # # Option 1 using Slicing
-
-        def reverseIt():
-            string = 'a man, a plan, a canal, frenemies!'
-            str_len = len(string)
-            sliced_string = string[str_len::-1]
-            return sliced_string
-        # Option 2 Using a a while loop
-        # def reverseIt():
-        #     string = 'a man, a plan, a canal, frenemies!'
-        #     reverse = ''
-        #     index = len(string)
-        #     while index > 0:
-        #         reverse = reverse + string[index-1]
-        #         index = index - 1
-        #     return reverse
-        # Option 3 Using join
-        # def reverseIt():
-        #     string = 'a man, a plan, a canal, frenemies!'
-        #     reversed_string = ''.join(reversed(string))
-        #     return reversed_string
-        # print(reverseIt())
-        # more javascript-like
-        # def swap():
-        #     a = 10
-        #     b = 30
-        #     temp = b
-        #     b = a
-        #     a = temp
-        #     return f'a is now {a}, b is now {b}, and temp is now {temp}'
-        # more pythonic
-
-        def swap():
-            a, b = 10, 30
-            b, a = a, b
-            return f'a is now {a} and b is now {b}'
-        # print(swap())
-
-        def multiply_array(arr):
-            if len(arr) == 0:
-                return 1
-            product = 1
-            for num in arr:
-                product = product * num
-            return product
-        # print(multiply_array([1, 2, 5, 10, 5]))
-
-        def fizz_buzzer(x):
-            if x % 3 == 0 and x % 5 == 0:
-                return 'fizzbuzz'
-            elif x % 3 == 0:
-                return 'fizz'
-            elif x % 5 == 0:
-                return 'buzz'
-            else:
-                return 'archer'
-        # print(fizz_buzzer(2))
-
-        def nth_fibonacci_number():
-            fibs = [1, 1]
-            num = input('which fibonacci number do you want? ')
-            while len(fibs) < int(num):
-                length = len(fibs)
-                next_fib = fibs[length-2] + fibs[length-1]
-                fibs.append(next_fib)
-            return f'{fibs[len(fibs)-1]} is the fibonacci number at position {num}'
-        # print(nth_fibonacci_number())
-        # more javascript-like
-        # def search_list(list, val):
-        #     for item in list:
-        #         if item == val:
-        #             return True
-        #     return False
-        # more pythonic
-
-        def search_list(list, val):
-            return val in list
-        # print(search_list(['cat', 'mouse', 'dog'], 'elephant'))
-
-        def is_palindrome(str):
-            if str == ''.join(reversed(str)):
-                return True
-            else:
-                return False
-        # # only works for single word strings
-        # print(is_palindrome('noon'))
-        # need to refactor so it accepts sentences
-
-        def has_duplicates(list):
-            for elem in list:
-                if list.count(elem) > 1:
-                    return True
-            return False
-
-        print(has_duplicates([1, 1, 3]))
-        ```
+double()
+# => 10
+```
+
+</details>
+
+<details>
+<summary>Differences</summary>
+    
+<details>
+<summary>JavaScript</summary>
+
+```jsx
+// Write a method that accepts a name from the user and then returns it. Here's the javascript:
+
+const getName = () => {
+let name = prompt("what is your name?");
+return name;
+};
+
+// Write a method that reverses a string. Here's the javascript:
+
+const reverseIt = () => {
+let string = "a man, a plan, a canal, frenemies!";
+
+let reverse = "";
+
+for (let i=0; i < string.length; i++) {
+reverse += string[string.length - (i+1)];
+};
+
+console.log(reverse);
+};
+
+// Write a method that swaps the values of two variables around. Here's the javascript:
+
+const swapEm = () => {
+let a = 10;
+let b = 30;
+let temp;
+
+temp = b;
+b = a;
+a = temp;
+
+console.log("a is now " + a + ", and b is now " + b);
+};
+
+// Write a method that multiplies all numbers in a given array and returns the final product. Here's the javascript:
+
+const multiplyArray = (ary) => {
+if (ary.length == 0) { return 1; };
+
+let total = 1;
+// let total = ary[0];
+
+for (let i=0; i < ary.length; i++) {
+total = total * ary[i];
+};
+
+return total;
+};
+
+// Write a method that takes a number argument and returns "fizz" if the number is divisible by three, "buzz" if the number is divisible by five, and "fizzbuzz" if it's divisible by both. Here's the javascript:
+
+const fizzbuzzer = (x) => {
+if( x%(3*5) == 0 ) {
+return 'fizzbuzz'
+} else if( x%3 == 0 ) {
+return 'fizz'
+} else if ( x%5 == 0 ) {
+return 'buzz'
+} else {
+return 'archer'
+}
+}
+
+// Write a method that finds the fibonacci number at the nth position and returns it. Here is the javascript:
+
+const nthFibonacciNumber = () => {
+let fibs = [1, 1];
+let num = prompt("which fibonacci number do you want?");
+
+while (fibs.length < parseInt(num)) {
+let length = fibs.length;
+let nextFib = fibs[length - 2] + fibs[length - 1];
+fibs.push(nextFib);
+}
+
+console.log(fibs[fibs.length - 1] + " is the fibonacci number at position " + num);
+};
+
+// Write a method that searches through an array for a value and returns true or false depending on whether or not the value is present in the array. Here is the javascript:
+
+const searchArray = (array, value) => {
+for(let i = 0; i < array.length-1; i++) {
+if(array[i] == value) {
+return true;
+break;
+}
+}
+return -1;
+};
+
+// Write a method that checks whether or not a string is a palindrome. Here is the javascript:
+
+const isPalindrome = (str) => {
+for(let i = 0; i < str.length/2; i++){
+if(str[i] != str[str.length-i-1]){
+return false;
+break;
+}
+}
+return true;
+};
+
+// Write a method that checks whether or not an array has any duplicates. Here is the javascript:
+
+const hasDupes = (arr) => {
+let obj = {};
+for (i = 0; i < arr.length; i++) {
+if(obj[arr[i]]) {
+return true;
+}
+else {
+obj[arr[i]] = true;
+}
+}
+return false;
+};
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+def getName():
+name = input('what is your name? ')
+return name
+# print(getName())
+# Write a method that reverses a string.
+# # Option 1 using Slicing
+
+def reverseIt():
+string = 'a man, a plan, a canal, frenemies!'
+str_len = len(string)
+sliced_string = string[str_len::-1]
+return sliced_string
+# Option 2 Using a a while loop
+# def reverseIt():
+#     string = 'a man, a plan, a canal, frenemies!'
+#     reverse = ''
+#     index = len(string)
+#     while index > 0:
+#         reverse = reverse + string[index-1]
+#         index = index - 1
+#     return reverse
+# Option 3 Using join
+# def reverseIt():
+#     string = 'a man, a plan, a canal, frenemies!'
+#     reversed_string = ''.join(reversed(string))
+#     return reversed_string
+# print(reverseIt())
+# more javascript-like
+# def swap():
+#     a = 10
+#     b = 30
+#     temp = b
+#     b = a
+#     a = temp
+#     return f'a is now {a}, b is now {b}, and temp is now {temp}'
+# more pythonic
+
+def swap():
+a, b = 10, 30
+b, a = a, b
+return f'a is now {a} and b is now {b}'
+# print(swap())
+
+def multiply_array(arr):
+if len(arr) == 0:
+return 1
+product = 1
+for num in arr:
+product = product * num
+return product
+# print(multiply_array([1, 2, 5, 10, 5]))
+
+def fizz_buzzer(x):
+if x % 3 == 0 and x % 5 == 0:
+return 'fizzbuzz'
+elif x % 3 == 0:
+return 'fizz'
+elif x % 5 == 0:
+return 'buzz'
+else:
+return 'archer'
+# print(fizz_buzzer(2))
+
+def nth_fibonacci_number():
+fibs = [1, 1]
+num = input('which fibonacci number do you want? ')
+while len(fibs) < int(num):
+length = len(fibs)
+next_fib = fibs[length-2] + fibs[length-1]
+fibs.append(next_fib)
+return f'{fibs[len(fibs)-1]} is the fibonacci number at position {num}'
+# print(nth_fibonacci_number())
+# more javascript-like
+# def search_list(list, val):
+#     for item in list:
+#         if item == val:
+#             return True
+#     return False
+# more pythonic
+
+def search_list(list, val):
+return val in list
+# print(search_list(['cat', 'mouse', 'dog'], 'elephant'))
+
+def is_palindrome(str):
+if str == ''.join(reversed(str)):
+return True
+else:
+return False
+# # only works for single word strings
+# print(is_palindrome('noon'))
+# need to refactor so it accepts sentences
+
+def has_duplicates(list):
+for elem in list:
+if list.count(elem) > 1:
+return True
+return False
+
+print(has_duplicates([1, 1, 3]))
+```
+
+</details>
+</details>
